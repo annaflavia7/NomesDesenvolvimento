@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="style.css">
+  <title>Nomes</title>
+</head>
+
+<body>
+  <h1>Seletor de Nomes</h1>
+
+  <form action="nomes.html">
+    <label for="">Informe um nome:</label>
+    <input type="text" name="campo_nome" id="nome" oninput="filtrar()">
+  </form>
+
+  <ul>
+    <li>Anna</li>
+    <li>Eduarda</li>
+    <li>Nathaly</li>
+    <li>Nicole</li>
+
+  </ul>
+
+  <script>
+    function filtrar() {
+      let nome = document.getElementById("nome").value.toLowerCase();
+      let listas = document.getElementsByTagName("li");
+
+      for (const varredor of listas) {
+        if (nome === '') {
+          varredor.style.fontWeight = 'normal';
+        }
+        else if (varredor.innerText.toLowerCase().startsWith(nome)) {
+          varredor.style.fontWeight = 'bold';
+        } else {
+          varredor.style.fontWeight = 'normal';
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
